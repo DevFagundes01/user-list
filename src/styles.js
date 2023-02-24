@@ -1,7 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components"
+import backend from './assets/frontend.svg'
 
 export const Container = styled.div`
-
+    background: url("${backend}");
+    background-size: cover;
 `
 export const Image = styled.img`
 
