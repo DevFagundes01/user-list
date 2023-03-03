@@ -1,30 +1,64 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+
+import people from './assets/people.svg'
+import arrow from './assets/arrow.svg'
+import trash from './assets/trash.svg'
 
 import {
   Container,
-  Image, 
+  Image,
   Container2,
   H1,
   InputLabel,
   Input,
-  Button
+  Button,
+  User
 } from "./styles";
 
-const App=() => {
+function App() {
+  const [users, setUsers] = useState([]);
+  const inputName = useRef();
+  const inputAge = useRef();
+
+  function addNewUser() {
+    setUsers([
+      ...users, {
+        id: Math.random(),
+        name: inputName.current.value,
+        age: inputAge.current.value,
+      },
+    ])
+  }
+  function deleteUser(userId) {
+    const newUsers = users.filter((user) => user.id === userId)
+
+    setUsers(newUsers)
+  }
 
   return (
     <Container>
-      <Image></Image>
+      <Image alt="logo-img" src={people}></Image>
       <Container2>
-      <H1>Olá</H1>
+        <H1>Olá</H1>
 
-      <InputLabel>Nome</InputLabel>
-      <Input placeholder="Nome"></Input>
+        <InputLabel>Nomee</InputLabel>
+        <Input ref={inputName} placeholder="Nomee"></Input>
 
-      <InputLabel>Idade</InputLabel>
-      <Input placeholder="Idade"></Input>
+        <InputLabel>Idade</InputLabel>
+        <Input ref={inputAge} placeholder="Idade"></Input>
 
-      <Button>Cadastrar</Button>
+        <Button onClick={addNewUser}>Cadastrar <img alt='seta' src={arrow} /></Button>
+
+        <ul>
+          {users.map((user) => (
+            <User key={user.id}>
+              <p>{user.name}</p> <p>{user.age}</p>
+              <button onClick={() => deleteUser(user.id)}>
+                <img src={trash} alt="lata-de-lixo"></img>
+              </button>
+            </User>
+          ))}
+        </ul>
       </Container2>
     </Container>
   )
