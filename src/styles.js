@@ -8,7 +8,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    height: 100vh;
+    min-height: 100vh;
 `
 export const Image = styled.img`
     margin-top: 30px;
@@ -23,7 +23,7 @@ export const Container2 = styled.div`
     padding: 50px 36px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 `
 export const H1 = styled.h1`
     font-style: normal;

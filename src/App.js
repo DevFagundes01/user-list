@@ -22,20 +22,14 @@ function App() {
   const inputAge = useRef();
 
   async function addNewUser() {
-    const data = await axios.post("http://localhost:3001/users", { 
+    const {data} = await axios.post("http://localhost:3001/users", { 
       name: inputName.current.value, 
       age: inputAge.current.value, 
     });
 
     console.log(data)
 
-    /*setUsers([
-      ...users, {
-        id: Math.random(),
-        name: inputName.current.value,
-        age: inputAge.current.value,
-      },
-    ])*/
+    setUsers([ data])
 }
   
   function deleteUser(userId) {
