@@ -1,23 +1,24 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import people from './assets/people.svg'
-import arrow from './assets/arrow.svg'
-import trash from './assets/trash.svg'
+import people from '../../assets/people.svg'
+import arrow from '../../assets/arrow.svg'
+
+import  H1  from "../../components/Title";
+import Container2 from "../../components/Container2";
+import Button from "../../components/Button";
 
 import {
   Container,
   Image,
-  Container2,
-  H1,
   InputLabel,
   Input,
-  Button,
-  User
 } from "./styles";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate()
   const inputName = useRef();
   const inputAge = useRef();
 
@@ -27,15 +28,9 @@ function App() {
       age: inputAge.current.value, 
     });
 
-    console.log(data)
-
-    setUsers([ data])
-}
-  
-  function deleteUser(userId) {
-    const newUsers = users.filter((user) => user.id !== userId)
-
-    setUsers(newUsers)
+    setUsers(...users, data)
+    
+    navigate("/usuarios")
   }
 
   return (
@@ -52,16 +47,6 @@ function App() {
 
         <Button onClick={addNewUser}>Cadastrar <img alt='seta' src={arrow} /></Button>
 
-        <ul>
-          {users.map((user) => (
-            <User key={user.id}>
-              <p>{user.name}</p> <p>{user.age}</p>
-              <button onClick={() => deleteUser(user.id)}>
-                <img src={trash} alt="lata-de-lixo"></img>
-              </button>
-            </User>
-          ))}
-        </ul>
       </Container2>
     </Container>
   )
