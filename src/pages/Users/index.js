@@ -19,7 +19,7 @@ import {
 function Users() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate()
-  const baseUrl = "https://code-club-first-project-node.vercel.app/"
+  const baseUrl = "https://code-club-first-project-node.vercel.app"
 
   useEffect(() => {
     async function fetcUsers() {

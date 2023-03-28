@@ -21,7 +21,7 @@ function App() {
   const navigate = useNavigate()
   const inputName = useRef();
   const inputAge = useRef();
-  const baseUrl = "https://code-club-first-project-node.vercel.app/"
+  const baseUrl = "https://code-club-first-project-node.vercel.app"
 
   async function addNewUser() {
     const {data} = await axios.post(`${baseUrl}/users`, { 
