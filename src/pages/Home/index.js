@@ -41,7 +41,7 @@ function App() {
         <H1>Olá</H1>
 
         <InputLabel>Nome</InputLabel>
-        <Input ref={inputName} placeholder="Nome"></Input>
+        <Input ref={inputName} placeholder="Nomee"></Input>
 
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} placeholder="Idade"></Input>
