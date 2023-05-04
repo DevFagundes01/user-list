@@ -39,7 +39,7 @@ function App() {
       <Container2>
         <H1>Olá</H1>
 
-        <InputLabel>Nomee</InputLabel>
+        <InputLabel>Nome</InputLabel>
         <Input ref={inputName}></Input>
 
         <InputLabel>Idade</InputLabel>
