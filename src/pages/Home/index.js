@@ -41,10 +41,10 @@ function App() {
         <H1>Olá</H1>
 
         <InputLabel>Nome</InputLabel>
-        <Input ref={inputName} placeholder="Nomee"></Input>
+        <Input ref={inputName}></Input>
 
         <InputLabel>Idade</InputLabel>
-        <Input ref={inputAge} placeholder="Idade"></Input>
+        <Input ref={inputAge}></Input>
 
         <Button onClick={addNewUser}>Cadastrar <img alt='seta' src={arrow} /></Button>
 
