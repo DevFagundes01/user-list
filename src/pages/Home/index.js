@@ -30,7 +30,6 @@ function App() {
     });
 
     setUsers(...users, data)
-    
     navigate("/usuarios")
   }
 
