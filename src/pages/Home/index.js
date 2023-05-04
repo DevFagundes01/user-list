@@ -40,8 +40,8 @@ function App() {
       <Container2>
         <H1>Olá</H1>
 
-        <InputLabel>Noma</InputLabel>
-        <Input ref={inputName} placeholder="Noma"></Input>
+        <InputLabel>Nomu</InputLabel>
+        <Input ref={inputName} placeholder="Nomu"></Input>
 
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} placeholder="Idade"></Input>
