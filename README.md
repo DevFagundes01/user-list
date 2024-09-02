@@ -1,5 +1,6 @@
 # my-react-app
-Link do projeto: https://react-app-devclub.netlify.app
+
+Deploy: https://react-app-devclub.netlify.app <br> Back-End: https://github.com/dfagundes2001/first-project-node
 <br>
 <h2>Esse foi o primeiro projeto react que eu aprendi no <a href="https://rodolfomori.com.br/devclub">DevClub</a></h2>
 <br>
