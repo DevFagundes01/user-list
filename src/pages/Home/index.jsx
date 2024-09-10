@@ -17,16 +17,17 @@ import {
   ContainerInput,
 } from "./styles";
 
+import api from '../../services/api'
+
 function App() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate()
   const inputName = useRef();
   const inputAge = useRef();
   const inputEmail = useRef();
-  const baseUrl = "https://code-club-first-project-node.vercel.app"
 
   async function addNewUser() {
-    const { data } = await axios.post(`${baseUrl}/users`, {
+    const { data } = await api.post(`/users`, {
       name: inputName.current.value,
       age: inputAge.current.value,
       email: inputEmail.current.value
