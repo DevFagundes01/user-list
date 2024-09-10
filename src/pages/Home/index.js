@@ -22,12 +22,14 @@ function App() {
   const navigate = useNavigate()
   const inputName = useRef();
   const inputAge = useRef();
+  const inputEmail = useRef();
   const baseUrl = "https://code-club-first-project-node.vercel.app"
 
   async function addNewUser() {
     const { data } = await axios.post(`${baseUrl}/users`, {
       name: inputName.current.value,
       age: inputAge.current.value,
+      email: inputEmail.current.value
     });
 
     setUsers(...users, data)
@@ -53,7 +55,7 @@ function App() {
         </ContainerInput>
         <div style={{width: '100%'}}>
           <InputLabel>Email</InputLabel>
-          <Input type='email' ref={inputAge}></Input>
+          <Input type='email' ref={inputEmail}></Input>
         </div>
 
         <Button onClick={addNewUser}>Cadastrar <img alt='seta' src={arrow} /></Button>
