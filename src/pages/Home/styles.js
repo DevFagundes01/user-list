@@ -14,6 +14,15 @@ export const Container = styled.div`
 export const Image = styled.img`
     margin-top: 30px;
 `
+
+export const Form = styled.form`
+ 
+`
+
+export const ContainerInput = styled.div`
+ 
+`
+
 export const InputLabel = styled.p`
     font-style: normal;
     font-weight: 700;

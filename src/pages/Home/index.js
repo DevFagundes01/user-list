@@ -5,15 +5,16 @@ import axios from "axios";
 import people from '../../assets/people.svg'
 import arrow from '../../assets/arrow.svg'
 
-import  H1  from "../../components/Title";
-import Container2 from "../../components/Container2";
+import Title from "../../components/Title";
 import Button from "../../components/Button";
 
 import {
   Container,
   Image,
+  Form,
   InputLabel,
   Input,
+  ContainerInput,
 } from "./styles";
 
 function App() {
@@ -36,18 +37,26 @@ function App() {
   return (
     <Container>
       <Image alt="logo-img" src={people}></Image>
-      <Container2>
-        <H1>Olá</H1>
+      <Form>
+        <Title>Cadastrar Usuários</Title>
 
-        <InputLabel>Nomee</InputLabel>
-        <Input ref={inputName}></Input>
+        <ContainerInput>
+          <div>
+            <InputLabel>Nome</InputLabel>
+            <Input type='text' ref={inputName}></Input>
+          </div>
 
-        <InputLabel>Idade</InputLabel>
-        <Input ref={inputAge}></Input>
+          <div>
+            <InputLabel>Idade</InputLabel>
+            <Input type='number' ref={inputAge}></Input>
+          </div>
+        </ContainerInput>
+
+        <InputLabel>Email</InputLabel>
+        <Input type='email' ref={inputAge}></Input>
 
         <Button onClick={addNewUser}>Cadastrar <img alt='seta' src={arrow} /></Button>
-
-      </Container2>
+      </Form>
     </Container>
   )
 }

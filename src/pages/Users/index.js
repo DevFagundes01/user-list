@@ -7,7 +7,6 @@ import trash from '../../assets/trash.svg'
 import arrow from '../../assets/arrow.svg'
 
 import H1 from '../../components/Title'
-import Container2 from "../../components/Container2";
 import Button from "../../components/Button";
 
 import {
@@ -46,7 +45,7 @@ function Users() {
     <Container>
       <Image alt="logo-img" src={avatar}></Image>
 
-      <Container2 isBlur={true}>
+      <div isBlur={true}>
         <H1>Usuarios</H1>
 
         <ul>
@@ -64,7 +63,7 @@ function Users() {
           <img alt='seta' src={arrow} />Voltar
         </Button>
 
-      </Container2>
+      </div>
     </Container>
   )
 }
