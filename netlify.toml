@@ -1,2 +1,2 @@
-[build.environment]
+[build]
   NODE_VERSION = "20.x"
