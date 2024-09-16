@@ -1,68 +1,92 @@
-import React, { useState, useRef } from "react";
+import { useRef } from "react";
+import api from "../../services/api";
+
+import { Container, ContainerInputs, Form, Input, InputLabel } from "./styles";
+
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-
-import people from '../../assets/people.svg'
-import arrow from '../../assets/arrow.svg'
-
-import Title from "../../components/Title";
 import Button from "../../components/Button";
+import Title from "../../components/Title";
+import TopBackground from "../../components/TopBackground";
 
-import {
-  Container,
-  Image,
-  Form,
-  InputLabel,
-  Input,
-  ContainerInput,
-} from "./styles";
+function Home() {
+	const inputName = useRef();
+	const inputAge = useRef();
+	const inputEmail = useRef();
 
-import api from '../../services/api'
+	const navigate = useNavigate();
 
-function App() {
-  const [users, setUsers] = useState([]);
-  const navigate = useNavigate()
-  const inputName = useRef();
-  const inputAge = useRef();
-  const inputEmail = useRef();
+	async function registerNewUser() {
+		return await api.post("/users", {
+			email: inputEmail.current.value,
+			name: inputName.current.value,
+			age: Number.parseInt(inputAge.current.value),
+		});
+	}
 
-  async function addNewUser() {
-    const { data } = await api.post(`/users`, {
-      name: inputName.current.value,
-      age: inputAge.current.value,
-      email: inputEmail.current.value
-    });
+	async function registerUserAndClearInputs() {
+		try {
+			await registerNewUser();
 
-    setUsers(...users, data)
-    navigate("/usuarios")
-  }
+			inputEmail.current.value = "";
+			inputName.current.value = "";
+			inputAge.current.value = "";
 
-  return (
-    <Container>
-      <Image alt="logo-img" src={people}></Image>
-      <Form>
-        <Title>Cadastrar Usuários</Title>
+			alert("Usuário registrado com sucesso");
+		} catch (error) {
+			if (error.code === "ERR_BAD_REQUEST") {
+				return alert(
+					"Este e-mail já está em uso. Por favor, use um e-mail diferente.",
+				);
+			}
 
-        <ContainerInput>
-          <div>
-            <InputLabel>Nome</InputLabel>
-            <Input type='text' ref={inputName}></Input>
-          </div>
+			alert("Error ao registrar novo usuário");
+			console.error("Error:", error);
+		}
+	}
 
-          <div>
-            <InputLabel>Idade</InputLabel>
-            <Input type='number' ref={inputAge}></Input>
-          </div>
-        </ContainerInput>
-        <div style={{width: '100%'}}>
-          <InputLabel>Email</InputLabel>
-          <Input type='email' ref={inputEmail}></Input>
-        </div>
+	return (
+		<Container>
+			<TopBackground />
 
-        <Button onClick={addNewUser}>Cadastrar <img alt='seta' src={arrow} /></Button>
-      </Form>
-    </Container>
-  )
+			<Form>
+				<Title>Cadastrar Usuário</Title>
+
+				<ContainerInputs>
+					<div>
+						<InputLabel>Nome</InputLabel>
+						<Input type="text" placeholder="Nome do usuário" ref={inputName} />
+					</div>
+					<div>
+						<InputLabel>Idade</InputLabel>
+						<Input
+							type="number"
+							placeholder="Idade do usuário"
+							ref={inputAge}
+						/>
+					</div>
+				</ContainerInputs>
+				<div style={{ width: "100%" }}>
+					<InputLabel>E-mail</InputLabel>
+					<Input
+						type="email"
+						placeholder="E-mail do usuário"
+						ref={inputEmail}
+					/>
+				</div>
+				<Button
+					type="button"
+					onClick={registerUserAndClearInputs}
+					theme="primary"
+				>
+					Cadastrar
+				</Button>
+			</Form>
+
+			<Button type="button" onClick={() => navigate("/lista-de-usuarios")}>
+				Ver Lista de Usuários
+			</Button>
+		</Container>
+	);
 }
 
-export default App
+export default Home;
