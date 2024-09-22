@@ -1,8 +1,8 @@
-# my-react-app
+# User List
 
-Deploy: https://react-app-devclub.netlify.app <br> Back-End: https://github.com/dfagundes2001/first-project-node
+Deploy: https://react-app-devclub.netlify.app <br> Back-End: https://github.com/dfagundes01/user-list-api
 <br>
-<h2>Esse foi o primeiro projeto react que eu aprendi no <a href="https://rodolfomori.com.br/devclub">DevClub</a></h2>
+<h2>Você poderá cadastrar usuários e, em uma página dedicada, visualizar, editar ou excluir seus registros conforme necessário.</h2>
 <br>
 <img src=https://github.com/dfagundes2001/my-react-app/blob/master/src/assets/Captura%20de%20tela%202024-09-16%20205959.png/>
 <h2>Tenologias ultilizadas:</h2>
