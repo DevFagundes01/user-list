@@ -1,6 +1,6 @@
 # User List
 
-Deploy: https://react-app-devclub.netlify.app <br> Back-End: https://github.com/dfagundes01/user-list-api
+Deploy: https://react-app-devclub.netlify.app <br> Back-End: https://github.com/DevFagundes01/user-list-api
 <br>
 <h2>Você poderá cadastrar usuários e, em uma página dedicada, visualizar, editar ou excluir seus registros conforme necessário.</h2>
 <br>
