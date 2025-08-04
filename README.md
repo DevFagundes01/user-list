@@ -11,4 +11,4 @@ Deploy: https://react-app-devclub.netlify.app <br> Back-End: https://github.com/
 <p>- JavaScript</p>
 <h2> Autor </h2>
 <p>Diego Fagundes da Silva</p>
-www.linkedin.com/in/diego-fagundes-da-silva-694ab71b3
+https://www.linkedin.com/in/diego-fagundes-da-silva/
